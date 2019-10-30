@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--bean的作用域
+   singleton 默认是单例
+   prototype
+   -->
+    <bean id="userService" class="com.cn.service.UserServiceimp" scope="singleton"></bean>
+    <bean id="user" class="com.cn.dao.User">
+        <property name="username" value="憨憨怪"></property>
+        <property name="password" value="123456"></property>
+        <property name="addresslist">
+            <list>
+                <value>重庆工程学院1</value>
+                <value>重庆工程学院2</value>
+                <value>重庆工程学院3</value>
+                <value>重庆工程学院4</value>
+                <value>重庆工程学院5</value>
+            </list>
+        </property>
+
+    </bean>
+
+
+</beans>

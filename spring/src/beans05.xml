@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xmlns指的是xml namespace命名空间-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+    手动给对象属性赋值的方式:
+    1.构造方法注入属性值
+    2.setter方法注入（见前面beans1）
+    3.通过p的命名空间注入
+    -->
+   <!-- <bean id="student" class="com.cn.dao.Student">
+        <property name="name" value="张三"></property>
+        <property name="age" value="29"></property>
+        <property name="id" value="178555"></property>
+    </bean>
+   -->
+
+
+
+    <!--<bean id="student" class="com.cn.dao.Student">
+        相当于调用
+         public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+        构造方法
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="age" value="15"></constructor-arg>
+    </bean>
+-->
+
+
+    <!--通过索引加类型 给构造方法赋值-->
+   <!-- <bean id="student" class="com.cn.dao.Student">
+        <constructor-arg index="0" value="name" type="java.lang.String"></constructor-arg>
+        <constructor-arg index="1" value="15" type="int"></constructor-arg>
+    </bean>
+   -->
+
+
+    <!--<bean id="student" class="com.cn.dao.Student" p:name="李四" p:id="179000502" p:age="18">
+    </bean>-->
+
+
+
+    <!--
+    spring表达式el
+    <property name="" value="#{表达式}"
+    #{123} #{'jack'}:数字，字符串
+    #{beanId}:拎一个bean引用
+    #{beanId.propName}:操作数据
+    #{beanId.toString()}:执行方法
+    #{T(类).字段/方法}:静态方法或字段
+    -->
+
+
+    <!--一个对象引用另一个对象的两种写法
+    ref:引用另一对象的名字
+    使用spel表达式 value="#{对象名}"
+    -->
+    <bean id="student" class="com.cn.dao.Student">
+        <property name="name" value="#{'zans'.toUpperCase()}"></property>
+        <property name="age" value="#{15}"></property>
+    </bean>
+</beans>
